@@ -146,3 +146,117 @@ header.sticky {
     color: #4A2C2A;
 }
 
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    
+    .hamburger {
+        display: block;
+    }
+    
+    .nav-actions .cart-toggle,
+    .nav-actions .search-toggle {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .search-form {
+        width: 250px;
+    }
+}
+* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 280px;
+    height: 100vh;
+    background-color: #F5F0E6;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    transition: all 0.3s ease;
+    padding: 80px 20px 20px;
+    overflow-y: auto;
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+.sidebar-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #4A2C2A;
+}
+
+.sidebar-menu {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.sidebar-menu li {
+    margin-bottom: 15px;
+}
+
+.sidebar-menu a {
+    display: block;
+    text-decoration: none;
+    color: #4A2C2A;
+    font-weight: 600;
+    padding: 10px 0;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.sidebar-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: #8B5A2B;
+    transition: all 0.3s ease;
+}
+
+.sidebar-menu a:hover::after,
+.sidebar-menu a.active::after {
+    width: 50px;
+}
+.sidebar-menu a:hover,
+.sidebar-menu a.active {
+    color: #C56E33;
+}
+
+.sidebar-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 0;
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
+}
+
+.sidebar-icon {
+    font-size: 1.5rem;
+    color: #4A2C2A;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.sidebar-icon:hover {
+    color: #C56E33;
+}
+
+@media (max-width: 576px) {
+    .sidebar {
+        width: 100%;
+        max-width: 300px;
+    }
+}
