@@ -497,3 +497,28 @@ textarea.form-control {
     resize: vertical;
 }
 
+/* Footer */
+footer {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+footer a {
+    color: var(--secondary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+footer a:hover {
+    color: var(--accent);
+}
+
+footer .fa-heart {
+    color: #ff6b6b;
+}
