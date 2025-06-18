@@ -335,5 +335,95 @@ addToCartButtons.forEach(button => {
     });
 });
 
+ // Update cart UI
+ function updateCart() {
+    // Update cart count
+    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+    cartCount.textContent = totalItems;
+    mobileCartCount.textContent = totalItems;
+    
+    // Update cart items
+    if (cart.length === 0) {
+        cartItems.innerHTML = `<div class="empty-cart">
+            <i class="fas fa-shopping-cart fa-2x"></i>
+            <p>Keranjang belanja kosong</p>
+        </div>`;
+        cartTotal.textContent = 'Rp 0';
+        return;
+    }
+    
+    cartItems.innerHTML = '';
+    let total = 0;
+    
+    cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+        
+        const cartItemElement = document.createElement('div');
+        cartItemElement.className = 'cart-item';
+        cartItemElement.innerHTML = `
+            <img src="${item.img}" alt="${item.name}" class="cart-item-img">
+            <div class="cart-item-details">
+                <h4 class="cart-item-title">${item.name}</h4>
+                <div class="cart-item-price">Rp ${item.price.toLocaleString()}</div>
+                <div class="cart-item-quantity">
+                    <button class="quantity-btn decrease" data-id="${item.id}">-</button>
+                    <span>${item.quantity}</span>
+                    <button class="quantity-btn increase" data-id="${item.id}">+</button>
+                </div>
+                <div class="remove-item" data-id="${item.id}">Hapus</div>
+            </div>
+        `;
+        
+        cartItems.appendChild(cartItemElement);
+    });
+    
+    // Add event listeners to quantity buttons
+    document.querySelectorAll('.decrease').forEach(button => {
+        button.addEventListener('click', () => {
+            const id = button.dataset.id;
+            const item = cart.find(item => item.id === id);
+            
+            if (item.quantity > 1) {
+                item.quantity--;
+            } else {
+                cart = cart.filter(item => item.id !== id);
+            }
+            
+            updateCart();
+        });
+    });
+    
+    document.querySelectorAll('.increase').forEach(button => {
+        button.addEventListener('click', () => {
+            const id = button.dataset.id;
+            const item = cart.find(item => item.id === id);
+            item.quantity++;
+            updateCart();
+        });
+    });
+    
+    document.querySelectorAll('.remove-item').forEach(button => {
+        button.addEventListener('click', () => {
+            const id = button.dataset.id;
+            cart = cart.filter(item => item.id !== id);
+            updateCart();
+        });
+    });
+    
+    // Update total
+    cartTotal.textContent = `Rp ${total.toLocaleString()}`;
+}
 
+// Initialize cart
+updateCart();
+
+// Sticky header
+window.addEventListener('scroll', () => {
+    const header = document.getElementById('header');
+    header.classList.toggle('sticky', window.scrollY > 50);
+});
+</script>
+</body>
+</html>
 
