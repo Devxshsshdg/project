@@ -58,12 +58,57 @@
         <div class="search-toggle sidebar-icon" id="mobileSearchToggle">
             <i class="fas fa-search"></i>
         </div>
+        
         <div class="cart-toggle sidebar-icon" id="mobileCartToggle">
             <i class="fas fa-shopping-cart"></i>
             <span class="cart-count" id="mobileCartCount">0</span>
         </div>
     </div>
 </div>
+
+<!-- Cart Modal -->
+<div class="cart-modal" id="cartModal">
+    <div class="cart-header">
+        <h3>Keranjang Belanja</h3>
+        <div class="cart-close" id="cartClose">
+            <i class="fas fa-times"></i>
+        </div>
+    </div>
+    
+    <div class="cart-items" id="cartItems">
+        <div class="empty-cart">
+            <i class="fas fa-shopping-cart fa-2x"></i>
+            <p>Keranjang belanja kosong</p>
+        </div>
+    </div>
+    
+    <div class="cart-total">
+        <span>Total:</span>
+        <span id="cartTotal">Rp 0</span>
+    </div>
+    
+    <button class="checkout-btn">Checkout</button>
+</div>
+
+<!-- Search Modal -->
+<div class="search-modal" id="searchModal">
+    <div class="search-modal-header">
+        <h3>Hasil Pencarian</h3>
+        <div class="search-modal-close" id="searchModalClose">
+            <i class="fas fa-times"></i>
+        </div>
+    </div>
+    <div class="search-results" id="searchResults">
+        <div class="no-results">
+            <i class="fas fa-search fa-2x"></i>
+            <p>Masukkan kata kunci untuk mencari produk</p>
+        </div>
+    </div>
+</div>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay"></div>
+
 <section id="hero">
     <div class="container">
         <div class="hero-content">

@@ -139,6 +139,7 @@ header.sticky {
     font-size: 1rem;
 }
 
+
 .hamburger {
     display: none;
     cursor: pointer;
@@ -166,7 +167,7 @@ header.sticky {
         width: 250px;
     }
 }
-* Sidebar */
+*/ Sidebar */
 .sidebar {
     position: fixed;
     top: 0;
@@ -405,6 +406,7 @@ header.sticky {
 .add-to-cart:hover {
     background: var(--accent);
 }
+
  /* Contact Section */
  .contact-grid {
     display: grid;
