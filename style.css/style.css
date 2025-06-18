@@ -346,3 +346,62 @@ header.sticky {
     color: #C56E33;
     font-weight: bold;
 }
+ /* Menu Section */
+ .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.menu-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+    position: relative;
+}
+
+.menu-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.menu-card img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.menu-card-content {
+    padding: 20px;
+}
+
+.menu-card h4 {
+    margin-bottom: 10px;
+}
+
+.menu-card .price {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+.add-to-cart {
+    display: block;
+    width: 100%;
+    background: var(--primary);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border: none;
+    border-radius: 0 0 10px 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.add-to-cart:hover {
+    background: var(--accent);
+}
