@@ -439,6 +439,28 @@ header.sticky {
     color: #C56E33;
     font-weight: bold;
 }
+/* 
+PERBEDAAN MASKING DAN CLIP-PATH:
+
+1. Masking:
+   - Menggunakan nilai transparansi gambar/mask untuk menentukan visibilitas
+   - Mendukung gradien transparansi (soft edges)
+   - Dapat menggunakan gambar atau SVG sebagai mask
+   - Mempertahankan efek seperti box-shadow dan filter
+   - Lebih fleksibel untuk efek kompleks
+
+2. Clip-Path:
+   - Hanya memotong elemen berdasarkan path yang ditentukan
+   - Hanya mendukung hard edges (tidak ada transparansi)
+   - Lebih cepat secara performa
+   - Tidak mempertahankan efek di luar path
+   - Sintaks lebih sederhana untuk bentuk dasar
+
+Pada implementasi ini saya menggunakan masking karena:
+- Butuh efek yang lebih halus dan kompleks
+- Ingin mempertahankan beberapa efek visual
+- Butuh bentuk khusus seperti biji kopi dan bintang
+*/
  /* Menu Section */
  .menu-grid {
     display: grid;
