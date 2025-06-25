@@ -243,4 +243,49 @@ function showNotification(message) {
                 });
             });
             
-           
+            // Buka/tutup modal keranjang
+        cartIcon.addEventListener('click', function() {
+            cartModal.style.display = 'block';
+            overlay.style.display = 'block';
+            renderCartItems();
+        });
+        
+        cartClose.addEventListener('click', function() {
+            cartModal.style.display = 'none';
+            overlay.style.display = 'none';
+        });
+        
+        overlay.addEventListener('click', function() {
+            cartModal.style.display = 'none';
+            this.style.display = 'none';
+        });
+        
+        // Tutup modal jika mengklik di luar area modal
+        window.addEventListener('click', function(event) {
+            if (event.target === detailModal) {
+                detailModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Set tahun di footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Efek scroll header
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '10px 0';
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                header.style.padding = '15px 0';
+                header.style.boxShadow = 'none';
+            }
+        });
+        
+        // Inisialisasi feather icons
+        document.addEventListener('DOMContentLoaded', function() {
+            feather.replace();
+            updateCart();
+        });
+   
